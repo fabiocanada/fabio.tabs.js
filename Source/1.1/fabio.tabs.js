@@ -1,16 +1,11 @@
 ﻿/*
-* Tabs - by Fabio Costa
+* fabio.tabs.js - by Fabio Costa
 * Version 1.1 (Oct/11/2012)
 * 
-* 
-* How to use:
-*   1) Create a div where you want to place the tabs.
-*   2) Create divs for each tab/button and apply class="tab"
-*   3) Create divs for each data content, apply class="data" make sure the order of them in the DOM is the same as the tabs
-* 
-* 
-* Check user guide at: http://fabiocanada.ca/2012/10/02/jquery-plugin-tabs-js/
-* 
+* http://fabiocanada.ca/2012/10/02/jquery-plugin-tabs-js/
+*
+* Copyright 2013 Fabio Costa
+* Released under the GNU General Public License, version 3 (GPL-3.0)
 */
 
 (function ($) {
@@ -30,6 +25,9 @@
             var n = $(this.tabs).size();
 
             $(this.tabs).each(function (i) {
+
+                //applying the width
+                $(this).css("width", opts.tabWidth);
 
                 //applying the middleLayer for each tab
                 if (i < n - 1) {
@@ -86,7 +84,7 @@
 
             if (opts.animate) {
                 this.ajaxIcon = document.createElement('img')
-                this.ajaxIcon.setAttribute('src', '/Content/images/ajax.gif');
+                this.ajaxIcon.setAttribute('src', 'ajax.gif');
                 this.ajaxIcon.setAttribute('style', 'text-align:center');
                 $(this.ajaxIcon).hide();
                 $(this.content).append($(this.ajaxIcon));
@@ -108,6 +106,6 @@
 
     };
 
-    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%' };
+    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%', tabWidth: '146px' };
 
 })(jQuery);
