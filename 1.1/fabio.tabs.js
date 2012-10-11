@@ -8,35 +8,8 @@
 *   2) Create divs for each tab/button and apply class="tab"
 *   3) Create divs for each data content, apply class="data" make sure the order of them in the DOM is the same as the tabs
 * 
-* Usage example: 
 * 
-* 
-* <div id="example">
-*   <div class="tab">Tab 1</div>
-*   <div class="tab">Tab 2</div>
-* 
-*   <div class="data">...</div>
-*   <div class="data">...</div>
-* </div> 
-*
-* OR
-* 
-* <div id="example">
-*   <div class="tab">Tab 1</div>
-*   <div class="data">...</div>
-*   <div class="tab">Tab 2</div>
-*   <div class="data">...</div>
-* </div> 
-* 
-* <script>
-*   $("#example").tabs();
-* </script>
-*
-* or
-*
-* <script>
-*   $("#example").tabs({ animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%' });
-* </script>
+* Check user guide at: http://fabiocanada.ca/2012/10/02/jquery-plugin-tabs-js/
 * 
 */
 
