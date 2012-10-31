@@ -1,6 +1,6 @@
 ﻿/*
 * fabio.tabs.js - by Fabio Costa
-* Version 1.1 (Oct/11/2012)
+* Version 1.2 (Oct/31/2012)
 * 
 * http://fabiocanada.ca/2012/10/02/jquery-plugin-tabs-js/
 *
@@ -65,9 +65,13 @@
                 });
             });
 
-            //css selected class for 1st tab
-            if (!$(this.tabs).first().hasClass("tabSelected"))
-                $(this.tabs).first().addClass("tabSelected");
+            if (isNaN(opts.defaultTabIndex))
+                opts.defaultTabIndex = 0;
+
+            //css selected class for the index tab
+            var selectedTab = $(this.tabs[opts.defaultTabIndex]);
+            if (!selectedTab.hasClass("tabSelected"))
+                selectedTab.addClass("tabSelected");
 
 
             //create the clear div
@@ -99,13 +103,15 @@
             $(this.divs).each(function () {
                 $(this).hide();
             });
-            $(this.divs).first().show();
+
+            var selectedDiv = $(this.divs[opts.defaultTabIndex]);
+            selectedDiv.show();
 
         });
 
 
     };
 
-    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%', tabWidth: '146px' };
+    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%', tabWidth: '146px', defaultTabIndex: 0 };
 
 })(jQuery);
