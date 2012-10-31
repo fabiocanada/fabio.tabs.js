@@ -27,7 +27,12 @@
             $(this.tabs).each(function (i) {
 
                 //applying the width
-                $(this).css("width", opts.tabWidth);
+                if (opts.fixedWidthTabs)
+                    $(this).css("width", opts.tabWidth);
+                else {
+                    $(this).css("padding-left", "4px");
+                    $(this).css("padding-right", "4px");
+                }
 
                 //applying the middleLayer for each tab
                 if (i < n - 1) {
@@ -112,6 +117,6 @@
 
     };
 
-    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%', tabWidth: '146px', defaultTabIndex: 0 };
+    $.fn.tabs.defaults = { animate: true, waitTime: 500, fadeIn: 'slow', contentWidth: '100%', tabWidth: '146px', defaultTabIndex: 0, fixedWidthTabs: true };
 
 })(jQuery);
