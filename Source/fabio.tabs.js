@@ -50,6 +50,8 @@
                     if ($(this).hasClass("tabSelected"))
                         return;
 
+					var self = $(this);
+						
                     var parent = $(this).parent().get(0);
                     $(parent).children(".tabSelected").removeClass("tabSelected").addClass("tabUnselected");
 
@@ -59,7 +61,16 @@
 
                     if (opts.animate) {
                         $(parent.ajaxIcon).show();
-                        setTimeout(function () { $(parent.divs[i]).fadeIn('slow'); $(parent.ajaxIcon).hide(); }, opts.waitTime);
+						
+						setTimeout(function () {
+
+                            if (self.hasClass("tabSelected")) {
+                                $(parent.divs[i]).fadeIn('slow');
+                                $(parent.ajaxIcon).hide();
+                            }
+
+                        }, opts.waitTime);
+						
                     } else {
                         $(parent.divs[i]).fadeIn(opts.fadeIn);
                     }
